@@ -30,7 +30,22 @@ return(result) }
 #four possible cars df
 possible_cars = data.frame(name = c("A","B","C","D"),mass=c(10000,65000,38000,5000), area = c(22,30,22,10))
 
-#random number generator of speeds
-speed = rnorm(n=250, mean=80, sd=10)
+mean_speed= 80*0.277
 
+#random number generator of speeds
+speed = abs(rnorm(n=250, mean=mean_speed, sd=10))
+
+```
+
+## For Loop
+
+```{r}
+power = as.data.frame(matrix(nrow=length(speed), ncol=nrow(possible_cars)))
+head(power)
+
+
+
+for (i in 1:ncol(power)) {
+  power[,i] = autopower(A=possible_cars$area[i], m=possible_cars$mass[i], V=speed)
+}
 ```
