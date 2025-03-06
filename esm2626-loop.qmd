@@ -57,7 +57,7 @@ colnames(power)=possible_cars$name
 power = power %>% pivot_longer(cols=everything(), names_to="car", values_to="power")
 head(power)
 
-# quick visualization
+#visualization
 forloop_plot = ggplot(power, aes(car,power, fill=car))+geom_boxplot()+ggtitle("For Loop")
 forloop_plot
 ```
