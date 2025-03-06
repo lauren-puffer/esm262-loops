@@ -9,14 +9,8 @@ editor: visual
 
 ```{r}
 library(purrr) #used for pmap 
-<<<<<<< HEAD
-library(tidyverse)
-library(ggplot2)
-
-=======
 library(ggpubr)
 library(tidyverse)
->>>>>>> ec5944dd0c5a9492cb55ce1242eabc326402469c
 ```
 
 ## Bring in the function
@@ -43,13 +37,11 @@ speed = abs(rnorm(n=250, mean=mean_speed, sd=10))
 
 ```
 
-<<<<<<< HEAD
 ## For Loop
 
 ```{r}
 power = as.data.frame(matrix(nrow=length(speed), ncol=nrow(possible_cars)))
 head(power)
-
 
 
 for (i in 1:ncol(power)) {
@@ -66,14 +58,14 @@ head(power)
 #visualization
 forloop_plot = ggplot(power, aes(car,power, fill=car))+geom_boxplot()+ggtitle("For Loop")
 forloop_plot
-=======
+```
+
+```{r}
 speeds = rlnorm(mean=mean_speed, sd=0.1\*mean_speed, nsample)
 
 # Pmap in Purrr
 
-```{r}
 #use pmap to loop with a function
 powerall2 = pmap(list(A = possible_cars$area, m=possible_cars$mass), autopower, V=speeds)
-
->>>>>>> ec5944dd0c5a9492cb55ce1242eabc326402469c
 ```
+
