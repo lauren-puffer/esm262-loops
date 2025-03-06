@@ -22,4 +22,15 @@ autopower = function( m, V, A, crolling = 0.015, Cdrag = 0.3, g = 9.8, p_air = 1
 return(result) }
 ```
 
-## Loop Method
+# Loop Method
+
+## Make data frame and vector
+
+```{r}
+#four possible cars df
+possible_cars = data.frame(name = c("A","B","C","D"),mass=c(10000,65000,38000,5000), area = c(22,30,22,10))
+
+#random number generator of speeds
+speed = rnorm(n=250, mean=80, sd=10)
+
+```
