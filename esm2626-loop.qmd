@@ -1,0 +1,19 @@
+---
+title: "ESM 262 - Autopower loop"
+author: "Lauren Puffer and Kaitlin Castor"
+format: html
+editor: visual
+---
+
+## Load libraries
+
+```{r}
+library(purrr) #used for pmap 
+
+```
+
+## Bring in the function
+
+```{r}
+
+```
