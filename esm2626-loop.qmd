@@ -15,5 +15,11 @@ library(purrr) #used for pmap
 ## Bring in the function
 
 ```{r}
-
+autopower = function( m, V, A, crolling = 0.015, Cdrag = 0.3, g = 9.8, p_air = 1.2) {
+  if (V < 0) V = NA
+  if (m < 0) return("Mass cannot be less than 0")
+  result = (crolling * m * g* V) + (0.5 * A * p_air * Cdrag * V**3)
+return(result) }
 ```
+
+## Loop Method
