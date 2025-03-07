@@ -61,11 +61,27 @@ forloop_plot
 ```
 
 ```{r}
-speeds = rlnorm(mean=mean_speed, sd=0.1\*mean_speed, nsample)
-
-# Pmap in Purrr
+#Pmap in Purrr package
 
 #use pmap to loop with a function
-powerall2 = pmap(list(A = possible_cars$area, m=possible_cars$mass), autopower, V=speeds)
+power_pmap = pmap(list(A = possible_cars$area, m=possible_cars$mass), autopower, V=speed)
+
+#create a dataframe with power in it and the names of each car
+power_pmap_df = as.data.frame(power_pmap, col.names=possible_cars$name)
+
+#pivot longer so that we may plot the power of each car
+power_long <- power_pmap_df |>
+  pivot_longer(cols=everything(), 
+               names_to="car", 
+               values_to="power")
+
 ```
 
+## Create a boxplot of power for each car
+
+```{r}
+pmap_plot = ggplot(power_long, aes(car,power, fill=car))+geom_boxplot()+ggtitle("pmap")
+
+#call it
+pmap_plot
+```
