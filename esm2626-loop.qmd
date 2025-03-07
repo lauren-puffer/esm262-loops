@@ -64,7 +64,8 @@ head(power)
 
 #visualization
 forloop_plot = ggplot(power, aes(car,power, fill=car))+geom_boxplot()+ggtitle("For Loop")
-forloop_plot
+
+print(forloop_plot)
 ```
 
 ```{r}
@@ -90,5 +91,5 @@ power_long <- power_pmap_df |>
 pmap_plot = ggplot(power_long, aes(car,power, fill=car))+geom_boxplot()+ggtitle("pmap")
 
 #call it
-pmap_plot
+print(pmap_plot)
 ```
